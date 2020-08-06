@@ -1,0 +1,20 @@
+.product_box {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid black;
+  width: 40%;
+  padding: 2px 4px;
+}
+
+.product_name {
+  flex-basis: 78%;
+  word-break: break-word;
+}
+
+.product_price {
+  flex-basis: 22%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
