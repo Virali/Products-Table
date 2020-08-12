@@ -10,14 +10,18 @@ const CellContainer = (props) => {
     items,
   } = props;
 
-  const [showStatus, toggleShow] = useState(false);
+  const [showStatus, toggleShow] = useState(true);
 
-  const mappedItems = items.map((item,index) => 
+  let oddEvenStyle = (items.length % 2) ? styles.flex_basis_odd : styles.flex_basis_even;
+
+  const mappedItems = items.map(item => 
     <Cell
+      id={item.itemID}
       productName={item.itemName}
       quantity={item.itemQuantity}
       price={item.itemPrice}
-      key={index}
+      key={item.itemID}
+      className={oddEvenStyle}
     />
   );
 
@@ -26,14 +30,16 @@ const CellContainer = (props) => {
   }
 
   return(
-    <div>
-      <div name="toggler" onClick={handleClick} >
+    <div className={styles.main_container}>
+      <div className={styles.toggler} onClick={handleClick} >
         <i className={`${styles.arrow} ${showStatus ? styles.up : styles.down}`} />
-        {groupName}
+        {"  "}{groupName}
       </div>
-      <div name="item_container">
+      {showStatus && 
+        <div className={styles.flex_container} name="item_container">
         {mappedItems}
-      </div>
+        </div>
+      }
     </div>
   );
 }

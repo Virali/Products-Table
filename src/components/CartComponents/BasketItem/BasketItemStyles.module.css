@@ -1,0 +1,25 @@
+.info_container {
+  flex-basis: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  border-top: gray solid;
+  padding: 7px 0;
+}
+
+.info_container div:not(.delete_button) {
+  text-align: left;
+}
+
+.name {
+  flex-basis: 42%;
+}
+
+.price {
+  flex-basis: 28%;
+  font-weight: 600;
+}
+
+.delete_button {
+  flex-basis: 12%;
+  text-align: center;
+}

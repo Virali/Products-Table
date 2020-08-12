@@ -1,20 +1,28 @@
 .product_box {
+  flex-grow: 1;
+  flex-shrink: 1;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  border: 1px solid black;
-  width: 40%;
-  padding: 2px 4px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+}
+
+.choosed {
+  background-color: rgb(204, 180, 74, .8);
 }
 
 .product_name {
   flex-basis: 78%;
   word-break: break-word;
+  padding: 4px;
 }
 
 .product_price {
+  background-color: rgb(174, 181, 187, .6);
   flex-basis: 22%;
   align-items: center;
   display: flex;
   justify-content: center;
+  padding: 4px;
 }

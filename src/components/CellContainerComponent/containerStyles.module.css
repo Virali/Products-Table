@@ -1,12 +1,26 @@
+.flex_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+}
+
+.main_container {
+  margin: 5px;
+  min-width: 300px;
+}
+
 .arrow {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 3px solid;
+  width: 13px;
+  height: 13px;
+  border: 2px solid;
   border-bottom: 0;
   border-left: 0;
   border-radius: 1px;
   text-indent: -9999rem;
+  margin-right: 4px;
 }
 
 .up {
@@ -15,4 +29,19 @@
 
 .down {
   transform: rotate(135deg);
+}
+
+.toggler {
+  background-color: rgb(175, 224, 252);
+  border: 1px solid;
+  padding: 3px 3px 3px 5px;
+  border-radius: 4px 4px 0 0;
+}
+
+.flex_basis_even {
+  flex-basis: 49%;
+}
+
+.flex_basis_odd {
+  flex-basis: 100%;
 }

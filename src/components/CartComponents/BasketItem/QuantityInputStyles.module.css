@@ -1,0 +1,16 @@
+.quantity {
+  flex-basis: 18%;
+  margin: 0 8px;
+}
+
+.quantity input {
+  width: 50%;
+}
+
+.alert {
+  background-color: rgba(250, 174, 102, 0.651);
+  color: rgb(255, 61, 61);
+  border: rgba(255, 143, 38, 0.671) solid;
+  padding: 4px 6px;
+  margin-top: 8px;
+}

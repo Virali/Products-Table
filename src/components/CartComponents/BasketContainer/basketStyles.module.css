@@ -1,0 +1,20 @@
+.table {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.container {
+  background-color: white;
+  padding: 8px 16px;
+}
+
+.total_price {
+  color: rgb(124 124 124);
+  display: flex;
+  white-space: pre;
+}
+
+.total_price div{
+  font-weight: 600;
+  color: rgb(255, 167, 85);
+}

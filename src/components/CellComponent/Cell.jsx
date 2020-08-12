@@ -1,20 +1,42 @@
 import React from "react";
 
+import { useStateValue } from "../../CartContext";
+
 import styles from './cellStyles.module.css';
 
 const Cell = (props) => {
-  console.log(props);
   const {
+    id,
     productName,
     price,
-    quantity,
+    quantity: maxQuantity,
+    className,
   } = props;
-  console.log(productName);
+
+  const [cartState, dispatch] = useStateValue();
+  const inCart = Boolean(cartState.find(item => item.id === id));
+
+  function handleClick() {
+    dispatch({
+      type: inCart
+      ? 'REMOVE'
+      : 'ADD',
+      item: {
+        id: id,
+        name: productName,
+        price: price,
+        maxQuantity: maxQuantity,
+      },
+    });
+  }
 
   return(
-    <div className={styles.product_box} >
+    <div 
+    className={`${styles.product_box} ${className} ${inCart ? styles.choosed : ''}`}
+    onClick={handleClick} 
+    >
       <div name='product-name' className={styles.product_name} >
-        {productName}({quantity})
+        {productName}({maxQuantity})
       </div>
       <div name='price' className={styles.product_price} >
         {price}

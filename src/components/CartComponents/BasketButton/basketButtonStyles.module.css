@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  background-color: rgb(110, 240, 121);
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  top: 0;
+  right: 0;
+  margin: 2px;
+  padding: 2px;
+}
+
+.basket_image {
+  width: inherit;
+}

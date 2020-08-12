@@ -1,0 +1,22 @@
+.label_box {
+  display: flex;
+  color: rgb(124 124 124);
+  flex-basis: 100%;
+}
+
+.label_box div {
+  text-align: left;
+}
+
+.name {
+  flex-basis: 42%;
+}
+
+.quantity {
+  flex-basis: 18%;
+  margin: 0 8px;
+}
+
+.price {
+  flex-basis: 28%;
+}
