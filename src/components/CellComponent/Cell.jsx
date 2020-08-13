@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useCartValue } from "../../contexts/cartContext";
 import { addItem, removeItem} from "../../actions/actionCreators";
+import { RateContext } from "../RateChanger/RateChangeProvider";
 
 import styles from './cellStyles.module.css';
 
@@ -15,6 +16,7 @@ const Cell = (props) => {
   } = props;
 
   const [cartState, dispatch] = useCartValue();
+  const [rateValue] = useContext(RateContext);
   const inCart = Boolean(cartState.find(item => item.id === id));
 
   function handleClick() {
@@ -37,8 +39,11 @@ const Cell = (props) => {
       <div name='product-name' className={styles.product_name} >
         {productName}({maxQuantity})
       </div>
-      <div name='price' className={styles.product_price} >
-        {price}
+      <div 
+        name='price'
+        className={`${styles.product_price} ${rateValue.getHigher ? styles.higher_rate : styles.less_rate}`}
+      >
+        {(price*rateValue.rate).toFixed(2)}
       </div>
     </div>
   );

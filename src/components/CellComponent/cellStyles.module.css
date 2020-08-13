@@ -26,3 +26,11 @@
   justify-content: center;
   padding: 4px;
 }
+
+.less_rate {
+  background-color: rgba(38, 173, 45, 0.747);
+}
+
+.higher_rate {
+  background-color: rgba(197, 38, 38, 0.767);
+}
