@@ -1,6 +1,7 @@
 import React from "react";
 
-import { useStateValue } from "../../CartContext";
+import { useCartValue } from "../../contexts/cartContext";
+import { addItem, removeItem} from "../../actions/actionCreators";
 
 import styles from './cellStyles.module.css';
 
@@ -13,22 +14,20 @@ const Cell = (props) => {
     className,
   } = props;
 
-  const [cartState, dispatch] = useStateValue();
+  const [cartState, dispatch] = useCartValue();
   const inCart = Boolean(cartState.find(item => item.id === id));
 
   function handleClick() {
-    dispatch({
-      type: inCart
-      ? 'REMOVE'
-      : 'ADD',
-      item: {
-        id: id,
-        name: productName,
-        price: price,
-        maxQuantity: maxQuantity,
-      },
-    });
-  }
+    if(inCart) {
+      dispatch(removeItem(id));
+    }
+    else dispatch(addItem({
+      id: id,
+      name: productName,
+      price: price,
+      maxQuantity: maxQuantity,
+    }));
+  };
 
   return(
     <div 

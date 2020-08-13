@@ -4,20 +4,28 @@ import styles from "./BasketItemStyles.module.css";
 
 import QuantityInput from "./QuantityInput";
 
+import { useCartValue } from "../../../contexts/cartContext";
+import { removeItem } from "../../../actions/actionCreators";
+
 const BasketItem = (props) => {
   const {
+    id,
     productName,
     price,
-    maxQuantity,
-    handleDelete,
   } = props;
+
+  const {1: dispatch} = useCartValue();
+
+  function handleDelete() {
+    dispatch(removeItem(id));
+  }
 
   return(
     <div name='item_container' className={styles.info_container}>
       <div name='item_name' className={styles.name}>
         {productName}
       </div>
-      <QuantityInput maxQuantity={maxQuantity} />
+      <QuantityInput id={id} />
       <div name='item_price' className={styles.price} >
         {price} руб. / шт
       </div>

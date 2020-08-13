@@ -3,22 +3,19 @@ import React from 'react';
 import styles from './basketStyles.module.css';
 
 import LabelBox from "../LabelBox/LabelBox";
-import { useStateValue } from "../../../CartContext";
+import { useCartValue } from "../../../contexts/cartContext";
 import BasketItem from "../BasketItem/BasketItem";
 
 function BasketContainer() {
-  const [cartState, dispatch] = useStateValue();
+  const [cartState] = useCartValue();
 
   const mappedItems = cartState.map(item => 
     <BasketItem
       key={item.id}
+      id={item.id}
       productName = {item.name}
       price = {item.price}
       maxQuantity = {item.maxQuantity}
-      handleDelete = {() => dispatch({
-        type: 'REMOVE',
-        id: item.id,
-      })}
     />
   );
 
@@ -29,7 +26,7 @@ function BasketContainer() {
         {mappedItems}
       </div>
       <div name='Total price' className={styles.total_price}>
-        Общая стоимость: <div>{cartState.reduce((accum,current) => accum + current.price, 0)} руб</div>
+        Общая стоимость: <div>{cartState.reduce((accum,current) => accum + current.price * current.quantity, 0)} руб</div>
       </div>
     </div>
   );
