@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 import styles from "./containerStyles.module.css";
 
 import Cell from '../CellComponent/Cell';
-import { RateContext } from "../RateChanger/RateChangeProvider";
 
 const CellContainer = (props) => {
   const {
