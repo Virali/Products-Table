@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Also used uuid.
 
-All components and global states based on hooks
+All components and global states are based on react hooks
 
 ## Available Scripts
 
